@@ -3,13 +3,12 @@ project:
   output-dir: docs
 
 book:
-  title: Elementos de Matemática Discreta para Computação
-  subtitle: Soluções dos Exercícios
-  author: c('Anamaria Gomide', 'Jorge Stolfi', 'Fernando Náufel')
+  title: 'Elementos de Matemática Discreta para Computação: Soluções'
+  author: Anamaria Gomide, Jorge Stolfi, Fernando Náufel
   date: now
   output-file: md-solucoes
   search: true
-  repo-url: https://github.com/fnaufel/???
+  repo-url: https://github.com/fnaufel/Exercicios
   repo-branch: master
   repo-actions: [edit, source, issue]
   downloads: [pdf]
@@ -20,6 +19,7 @@ book:
     - linkedin
   chapters:
     - index.qmd
+    - 02-conjuntos.qmd
     - references.qmd
 
 bibliography: bibliography.bib
@@ -37,6 +37,10 @@ execute:
   error: true
   include: true
 
+highlight-style: tango
+syntax-definitions: 
+  - /home/fnaufel/bin/SETLX/syntax_highlighting/setlx.xml
+
 format:
   html:
     toc-depth: 3
@@ -50,7 +54,8 @@ format:
     code-tools: true
     link-external-icon: true
     link-external-newwindow: true
-    link-external-filter: ^(?:http:|https:)\/\/fnaufel\.github\.io
+    link-external-filter: ^(?:http:|https:)\/\/fnaufel\.github\.io\/Exercicios
+
   pdf:
     documentclass: scrreprt
     toc-depth: 3

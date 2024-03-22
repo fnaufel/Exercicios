@@ -1,0 +1,42 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Elementos de Matemática Discreta para Computação: Soluções",
+    "section": "",
+    "text": "Apresentação\n???\nAnamaria Gomide (2023)\n\n\n\n\n\n\nAnamaria Gomide, Jorge Stolfi. 2023. Elementos de Matemática Discreta para Computação. https://www.ic.unicamp.br/~stolfi/fmc-book/2022-08-24-js/livro.pdf.",
+    "crumbs": [
+      "Apresentação"
+    ]
+  },
+  {
+    "objectID": "02-conjuntos.html",
+    "href": "02-conjuntos.html",
+    "title": "2 Teoria dos Conjuntos",
+    "section": "",
+    "text": "2.1 Conjuntos, elementos e pertinência",
+    "crumbs": [
+      "2 Teoria dos Conjuntos"
+    ]
+  },
+  {
+    "objectID": "02-conjuntos.html#conjuntos-elementos-e-pertinência",
+    "href": "02-conjuntos.html#conjuntos-elementos-e-pertinência",
+    "title": "2 Teoria dos Conjuntos",
+    "section": "",
+    "text": "Resposta (a)\n\n\n\n\n\nPrecisamos usar algum método para resolver a equação\n\\[\nx^4 - 5x^2 + 6 = 0\n\\]\nUma maneira: se fizermos \\(y = x^2\\), a equação fica\n\\[\ny^2 - 5y + 6 = 0\n\\]\nque tem raízes \\(y = 2\\) e \\(y = 3\\).\nDaí, resolvendo \\(2 = x^2\\), temos \\(x = \\pm\\sqrt2\\).\nE resolvendo \\(3 = x^2\\), temos \\(x = \\pm\\sqrt3\\).\nEscrevendo o conjunto como uma enumeração dos elementos:\n\\[\n\\left\\{ -\\sqrt3, -\\sqrt2, \\sqrt2, \\sqrt3 \\right\\}\n\\]\n\n\n\n\n\n\n\n\n\nResposta (b)\n\n\n\n\n\nPreste atenção: agora, não queremos as raízes, mas sim os valores de \\(x^2 + 1\\), onde \\(x\\) assume os valores das raízes.\nO conjunto poderia ser escrito como\n\\[\n\\left\\{ x^2 + 1 : x \\in \\{ -\\sqrt3, -\\sqrt2, \\sqrt2, \\sqrt3 \\} \\right\\}\n\\]\nCalculando os valores de \\(x^2 + 1\\), temos:\n\n\n\n\n\n\n\\(x\\)\n\\(x^2 + 1\\)\n\n\n\n\\(-\\sqrt{3}\\)\n\\(4\\)\n\n\n\\(-\\sqrt{2}\\)\n\\(3\\)\n\n\n\\(\\sqrt{2}\\)\n\\(3\\)\n\n\n\\(\\sqrt{3}\\)\n\\(4\\)\n\n\n\n\n\n\nNa tabela acima, há elementos repetidos, mas isto não pode acontecer em um conjunto. Então, a resposta é\n\\[\n\\left\\{ 3, 4 \\right\\}\n\\]\nEm SETLX\n\nA := { -sqrt(3), -sqrt(2), sqrt(3), sqrt(2) };\nB := { x**2 + 1 : x in A };\nprint(\"B = \", B);\n\n// Como SETLX usou ponto flutuante, houve erro.\n// Vamos arredondar:\nprint( \"B = \", { round(x) : x in B } );\n\nB = {3.0000000000000004, 3.9999999999999996}\nB = {3, 4}",
+    "crumbs": [
+      "2 Teoria dos Conjuntos"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "Referências",
+    "section": "",
+    "text": "Anamaria Gomide, Jorge Stolfi. 2023. Elementos de Matemática\nDiscreta para Computação. https://www.ic.unicamp.br/~stolfi/fmc-book/2022-08-24-js/livro.pdf.",
+    "crumbs": [
+      "Referências"
+    ]
+  }
+]

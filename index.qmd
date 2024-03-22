@@ -9,4 +9,6 @@ source('_setup.R')
 
 ???
 
+@anamaria23:_elemen_matem_discr_comput
+
 

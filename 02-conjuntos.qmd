@@ -1,0 +1,94 @@
+
+{{< include _math.qmd >}}
+
+```{r setup, include=FALSE}
+source('_setup.R')
+```
+
+# 2 Teoria dos Conjuntos {.unnumbered}
+
+## 2.1 Conjuntos, elementos e pertinência
+
+![](images/ex-02.01.png)
+
+::: {.callout-note title="Resposta (a)" collapse="true" icon="false"}
+
+Precisamos usar algum método para resolver a equação
+
+$$
+x^4 - 5x^2 + 6 = 0
+$$
+
+Uma maneira: se fizermos $y = x^2$, a equação fica
+
+$$
+y^2 - 5y + 6 = 0
+$$
+
+que tem raízes $y = 2$ e $y = 3$.
+
+Daí, resolvendo $2 = x^2$, temos $x = \pm\sqrt2$.
+
+E resolvendo $3 = x^2$, temos $x = \pm\sqrt3$.
+
+Escrevendo o conjunto como uma enumeração dos elementos:
+
+$$
+\left\{ -\sqrt3, -\sqrt2, \sqrt2, \sqrt3 \right\}
+$$
+
+:::
+
+::: {.callout-note title="Resposta (b)" collapse="true" icon="false"}
+
+Preste atenção: agora, não queremos as raízes, mas sim os valores de $x^2 + 1$, onde $x$ assume os valores das raízes.
+
+O conjunto poderia ser escrito como
+
+$$
+\left\{ x^2 + 1 : x \in \{ -\sqrt3, -\sqrt2, \sqrt2, \sqrt3 \} \right\}
+$$
+
+Calculando os valores de $x^2 + 1$, temos:
+
+```{r echo=FALSE}
+tibble(
+  x = c(
+    '\\(-\\sqrt{3}\\)', 
+    '\\(-\\sqrt{2}\\)', 
+    '\\(\\sqrt{2}\\)', 
+    '\\(\\sqrt{3}\\)'
+  ) %>% 
+    map_chr(md),
+  y = c(4, 3, 3, 4) %>% 
+    paste0('\\(', ., '\\)') %>% 
+    map_chr(md)
+) %>% 
+  gt() %>% 
+    cols_label(
+      x = '\\(x\\)' %>% map_chr(md),
+      y = '\\(x^2 + 1\\)' %>% map_chr(md)
+    ) %>% 
+  cols_align('right')
+```
+
+Na tabela acima, há elementos repetidos, mas isto não pode acontecer em um conjunto. Então, a resposta é
+
+$$
+\left\{ 3, 4 \right\}
+$$
+
+#### Em SETLX
+
+```{setlx}
+A := { -sqrt(3), -sqrt(2), sqrt(3), sqrt(2) };
+B := { x**2 + 1 : x in A };
+print("B = ", B);
+
+// Como SETLX usou ponto flutuante, houve erro.
+// Vamos arredondar:
+print( "B = ", { round(x) : x in B } );
+```
+
+
+:::

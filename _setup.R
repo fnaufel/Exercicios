@@ -128,16 +128,18 @@ knitr::knit_hooks$set(inline = fm)
 # Misc libraries ----------------------------------------------------------
 
 # library(janitor)
-# library(latex2exp)
 # library(kableExtra)
 # options(knitr.kable.NA = '')
-# library(conflicted)
+library(conflicted)
+library(latex2exp)
+library(gt) 
+library(rsetlx)
 
 # Tidyverse ---------------------------------------------------------------
 
-# library(tidyverse)
-# conflict_prefer("view", "tibble")
-# conflict_prefer("filter", "dplyr")
+library(tidyverse)
+conflict_prefer("view", "tibble")
+conflict_prefer("filter", "dplyr")
 # 
 # # Text size in plots
 # plot_text_size = ifelse(is_html_output(), 11, 13)
@@ -180,11 +182,11 @@ knitr::knit_hooks$set(inline = fm)
 
 # Add package names to downlit options so that functions from these packages
 # are correctly linked to the docs in the HTML output
-library(sessioninfo)
-
-packages <- session_info('attached')$packages %>%
-  pull(package)
-
-options(downlit.attached = packages)
+# library(sessioninfo)
+# 
+# packages <- session_info('attached')$packages %>%
+#   pull(package)
+# 
+# options(downlit.attached = packages)
 
 # End setup ---------------------------------------------------------------
