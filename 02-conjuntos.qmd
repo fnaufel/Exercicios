@@ -54,22 +54,23 @@ Calculando os valores de $x^2 + 1$, temos:
 ```{r echo=FALSE}
 tibble(
   x = c(
-    '\\(-\\sqrt{3}\\)', 
-    '\\(-\\sqrt{2}\\)', 
-    '\\(\\sqrt{2}\\)', 
-    '\\(\\sqrt{3}\\)'
+    '$-\\sqrt{3}$', 
+    '$-\\sqrt{2}$', 
+    '$\\sqrt{2}$', 
+    '$\\sqrt{3}$'
   ) %>% 
-    map_chr(md),
+    vec_fmt_markdown(),
   y = c(4, 3, 3, 4) %>% 
-    paste0('\\(', ., '\\)') %>% 
-    map_chr(md)
+    paste0('$', ., '$') %>% 
+    vec_fmt_markdown()
 ) %>% 
   gt() %>% 
     cols_label(
-      x = '\\(x\\)' %>% map_chr(md),
-      y = '\\(x^2 + 1\\)' %>% map_chr(md)
+      x = '$x$' %>% md(),
+      y = '$x^2 + 1$' %>% md()
     ) %>% 
-  cols_align('right')
+  cols_align('right') %>% 
+  fmt_passthrough(rows = everything(), escape = FALSE)
 ```
 
 Na tabela acima, há elementos repetidos, mas isto não pode acontecer em um conjunto. Então, a resposta é
