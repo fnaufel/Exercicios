@@ -246,7 +246,7 @@
 
 \title{Elementos de Matemática Discreta para Computação: Soluções}
 \author{Anamaria Gomide, Jorge Stolfi, Fernando Náufel}
-\date{22/03/2024 17:25}
+\date{26/03/2024 18:00}
 
 \begin{document}
 \maketitle
@@ -292,9 +292,22 @@ pertinência}\label{conjuntos-elementos-e-pertinuxeancia}
 
 \markright{2.1 Conjuntos, elementos e pertinência}
 
-\includegraphics{images/ex-02.01.png}
+\subsection*{Exercício 2.1}\label{exr-2-1}
+\addcontentsline{toc}{subsection}{Exercício 2.1}
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, leftrule=.75mm, colback=white, breakable, title={Resposta (a)}, titlerule=0mm, opacityback=0, toprule=.15mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, rightrule=.15mm, bottomrule=.15mm]
+Escreva os elementos dos conjuntos abaixo:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  $\{ x : x \text{ é raiz do polinômio } x^4 - 5x^2 + 6 \}$
+\item
+  $\{ x^2 + 1 : x \text{ é raiz do polinômio } x^4 - 5x^2 + 6 \}$
+\item
+  $\{ x \in \{1, 2, 3, 4\} : x \text{ é raiz do polinômio } x^4 - 5x^2 + 6 \}$
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (a)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
 
 Precisamos usar algum método para resolver a equação
 
@@ -322,7 +335,7 @@ Escrevendo o conjunto como uma enumeração dos elementos:
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, leftrule=.75mm, colback=white, breakable, title={Resposta (b)}, titlerule=0mm, opacityback=0, toprule=.15mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, rightrule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (b)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
 
 Preste atenção: agora, não queremos as raízes, mas sim os valores de
 $x^2 + 1$, onde $x$ assume os valores das raízes.
@@ -372,6 +385,290 @@ um conjunto. Então, a resposta é
 B = {3.0000000000000004, 3.9999999999999996}
 B = {3, 4}
 \end{verbatim}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (c)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+
+Este item se parece com o item (a), mas há uma diferença importante: os
+valores de $x$ --- isto é, os elementos do conjunto --- precisam
+pertencer a $\{ 1, 2, 3, 4 \}$. Além disso, os valores de $x$ precisam
+ser raízes do polinômio dado.
+
+No item (a), vimos que as raízes são
+$-\sqrt3, -\sqrt2, \sqrt2, \text{ e } \sqrt3$. Nenhuma delas pertence ao
+conjunto $\{ 1, 2, 3, 4 \}$.
+
+Conclusão: o conjunto do item (c) é vazio.
+
+\subsubsection*{Em SETLX}\label{em-setlx-1}
+\addcontentsline{toc}{subsubsection}{Em SETLX}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{C := \{ x : x }\KeywordTok{in}\NormalTok{ \{}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{\} | x**}\DecValTok{4}\NormalTok{ {-} }\DecValTok{5}\NormalTok{*x**}\DecValTok{2}\NormalTok{ + }\DecValTok{6}\NormalTok{ == }\DecValTok{0}\NormalTok{ \};}
+\KeywordTok{print}\NormalTok{(}\StringTok{"C = "}\NormalTok{, C);}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+C = {}
+\end{verbatim}
+
+Observe que a {\hl{notação de SETLX}} divide a especificação do conjunto
+{\hl{em três partes}}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A forma geral do elemento: \texttt{x};
+\item
+  O domínio de onde vêm os valores da variável:
+  \texttt{x\ in\ \{1,\ 2,\ 3,\ 4\}};
+\item
+  A condição que deve ser satisfeita pelos elementos do conjunto:
+  \texttt{x**4\ -\ 5*x**2\ +\ 6\ ==\ 0}.
+\end{enumerate}
+
+A {\hl{notação do livro}} divide a especificação do conjunto {\hl{em
+duas partes}}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A forma geral do elemento e o universo: $x \in \{1, 2, 3, 4\}$;
+\item
+  A condição que deve ser satisfeita pelos elementos do conjunto: $x$
+  \emph{é raiz do polinômio} $x^4 - 5x^2 + 6$.
+\end{enumerate}
+
+Lembre-se disso para poder implementar corretamente em SETLX os exemplos
+do livro.
+
+\end{tcolorbox}
+
+\subsection*{Exercício 2.2}\label{exr-2-2}
+\addcontentsline{toc}{subsection}{Exercício 2.2}
+
+Escreva explicitamente os elementos dos seguintes conjuntos:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  $\{ x \in \mathbb{Z}: x^2 - 2x + 1 < 0 \}$
+\item
+  $\{ x \in \mathbb{Z}: 2 \leq x \leq 20 \text{ e } x \text{ é primo} \}$
+\item
+  $\{ x \in \mathbb{R}: x^2 - 2x = 0 \}$
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (a)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+
+Usando seus conhecimentos de Geometria Analítica, você pode traçar o
+gráfico da função $f : \mathbb{R}\to \mathbb{R}$ tal que
+
+\[
+f(x) = x^2 - 2x + 1
+\]
+
+\includegraphics{images/ex-02.02-funcao.png}
+
+O único valor de $x$ para o qual $x^2 - 2x + 1 \leq 0$ é $1$ (que também
+é a única raiz desta função).
+
+O conjunto deste item tem os inteiros ($\mathbb{Z}$) como universo, e
+$1$ é inteiro. Então, o conjunto é $\{ 1 \}$.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (b)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+
+Este é o conjunto dos primos entre $2$ e $20$, inclusive:
+
+\[
+\{ 2, 3, 5, 7, 11, 13, 17, 19 \}
+\]
+
+\subsubsection*{Em SETLX}\label{em-setlx-2}
+\addcontentsline{toc}{subsubsection}{Em SETLX}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// Função para testar se x é primo:}
+\NormalTok{primo := }\KeywordTok{procedure}\NormalTok{(x) \{}
+  
+  \CommentTok{// Para cada inteiro i entre 2 e teto (ceiling) de √x:}
+  \KeywordTok{for}\NormalTok{ (i }\KeywordTok{in}\NormalTok{ \{}\DecValTok{2}\NormalTok{..}\KeywordTok{ceil}\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(x))\}) \{}
+    
+    \CommentTok{// Se o resto de x dividido por i for zero, x não é primo:}
+    \KeywordTok{if}\NormalTok{ (x \% i == }\DecValTok{0}\NormalTok{) \{}
+      \KeywordTok{return} \KeywordTok{false}\NormalTok{;}
+\NormalTok{    \}}
+    
+\NormalTok{  \}}
+  
+  \CommentTok{// Se testou todos os valores de i sem dar resto zero, x é primo:}
+  \KeywordTok{return} \KeywordTok{true}\NormalTok{;}
+  
+\NormalTok{\};}
+
+\NormalTok{B := \{ x : x }\KeywordTok{in}\NormalTok{ \{}\DecValTok{2}\NormalTok{..}\DecValTok{20}\NormalTok{\} | primo(x) \};}
+\KeywordTok{print}\NormalTok{(}\StringTok{"B = "}\NormalTok{, B);}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+B = {3, 5, 7, 11, 13, 17, 19}
+\end{verbatim}
+
+Você verá, em outros exercícios, maneiras mais curtas para calcular os
+primos em um dado intervalo em SETLX. A função acima é a mais parecida
+com o que você vai aprender na sua disciplina de programação.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (c)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+
+Basta achar as soluções da equação:
+
+\[
+x^2 - 2x = 0 \iff x(x - 2) = 0 \iff x = 0 \text{ ou } x = 2
+\]
+
+Então, o conjunto é $\{ 0, 2 \}$.
+
+\end{tcolorbox}
+
+\subsection*{Exercício 2.3}\label{exr-2-3}
+\addcontentsline{toc}{subsection}{Exercício 2.3}
+
+Determine a cardinalidade dos seguintes conjuntos:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  $\{ x \in \mathbb{Z}: -2 \leq x \leq 4 \}$
+\item
+  $\{ x \in \mathbb{Z}: 10 \leq x^2 \leq 100 \}$
+\item
+  $\{ x \in \mathbb{R}: x^4 - 5x^2 + 6 = 0 \}$
+\item
+  $\{ \sin(k\pi/7) : k \in \mathbb{Z}\}$
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (a)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+
+Este é o conjunto $A = \{ -2, -1, 0, 1, 2, 3, 4 \}$, que tem $7$
+elementos. Logo, $|A| = 7$.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (b)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+
+Este é o conjunto dos inteiros cujo quadrado está entre $10$ e $100$,
+inclusive.
+
+\textbf{Preste atenção:} números negativos, quando elevados ao quadrado,
+resultam em números positivos.
+
+Este conjunto é
+
+\[
+B = \{ -10, -9, -8, -7, -6, -5, -4, 4, 5, 6, 7, 8, 9, 10 \}
+\]
+
+e $|B| = 14$.
+
+\subsubsection*{Em SETLX}\label{em-setlx-3}
+\addcontentsline{toc}{subsubsection}{Em SETLX}
+
+E se os limites não fossem $10$ e $100$?
+
+Vamos fazer uma função mais geral, que recebe dois valores
+(\texttt{minimo} e \texttt{maximo}) e retorna o conjunto
+
+\[
+\left\{ 
+x \in \mathbb{Z}: 
+x \in \{ -\sqrt{\texttt{maximo}}, \ldots, +\sqrt{\texttt{maximo}} \}
+\text{ e } \texttt{minimo} \leq x^2 \leq \texttt{maximo}
+\right\}
+\]
+
+Leia com atenção a definição acima. Por que o domínio é
+$\{ -\sqrt{\texttt{maximo}}, \ldots, +\sqrt{\texttt{maximo}} \}$?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{calcular := }\KeywordTok{procedure}\NormalTok{(minimo, maximo) \{}
+  
+\NormalTok{  extremo\_esquerdo := {-}}\KeywordTok{floor}\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(maximo));}
+\NormalTok{  extremo\_direito  :=  }\KeywordTok{floor}\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(maximo));}
+  
+  \KeywordTok{return}\NormalTok{ \{ }
+\NormalTok{    x : }
+\NormalTok{      x }\KeywordTok{in}\NormalTok{ \{ extremo\_esquerdo..extremo\_direito \} |}
+\NormalTok{        minimo \textless{}= x**}\DecValTok{2}\NormalTok{ \&\& x**}\DecValTok{2}\NormalTok{ \textless{}= maximo}
+\NormalTok{  \};}
+  
+\NormalTok{\};}
+
+\CommentTok{// Vários conjuntos, com valores diferentes:}
+\KeywordTok{print}\NormalTok{(}\StringTok{"B  = "}\NormalTok{, calcular(}\DecValTok{10}\NormalTok{, }\DecValTok{100}\NormalTok{));}
+\KeywordTok{print}\NormalTok{(}\StringTok{"B2 = "}\NormalTok{, calcular(}\DecValTok{5}\NormalTok{, }\DecValTok{50}\NormalTok{));}
+\KeywordTok{print}\NormalTok{(}\StringTok{"B3 = "}\NormalTok{, calcular(}\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{));}
+\KeywordTok{print}\NormalTok{(}\StringTok{"B4 = "}\NormalTok{, calcular(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{));}
+
+\CommentTok{// B5 está correto?}
+\KeywordTok{print}\NormalTok{(}\StringTok{"B5 = "}\NormalTok{, calcular(}\DecValTok{10}\NormalTok{, }\DecValTok{0}\NormalTok{));}
+
+\KeywordTok{print}\NormalTok{(}\StringTok{"\textbackslash{}n"}\NormalTok{);}
+
+\CommentTok{// Nossa função não é muito robusta. }
+\CommentTok{// Ela quebra se maximo for negativo. Por quê?}
+\KeywordTok{print}\NormalTok{(}\StringTok{"B6 = "}\NormalTok{, calcular({-}}\DecValTok{20}\NormalTok{, {-}}\DecValTok{10}\NormalTok{));}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+B  = {-10, -9, -8, -7, -6, -5, -4, 4, 5, 6, 7, 8, 9, 10}
+B2 = {-7, -6, -5, -4, -3, 3, 4, 5, 6, 7}
+B3 = {-2, -1, 0, 1, 2}
+B4 = {0}
+B5 = {}
+
+
+Error in "print("B6 = ", calcular(-20, -10))":
+Error in "calcular(-20, -10)":
+Error in "extremo_esquerdo := -floor(sqrt(maximo))":
+Error in "-floor(sqrt(maximo))":
+Error in "floor(sqrt(maximo))":
+Error in "sqrt(maximo)":
+Result of this operation is undefined/not a number.
+
+Replay: 
+2.4: sqrt(maximo) FAILED 
+2.3: maximo <~> -10
+2.2: sqrt <~> procedure(x) { /* predefined procedure `sqrt' */ }
+2.1: floor <~> procedure(numberValue) { /* predefined procedure `floor' */ }
+1.8: calcular(-20, -10) FAILED 
+1.7: -10 <~> -10
+1.6: 10 <~> 10
+1.5: -20 <~> -20
+1.4: 20 <~> 20
+1.3: calcular <~> procedure(minimo, maximo) { extremo_esquerdo := -floor(sqrt(maximo)); extremo_direito := floor(sqrt(maximo)); return {x : x in {extremo_esquerdo .. extremo_direito} | minimo <= x ** 2 && x ** 2 <= maximo}; }
+1.2: "B6 = " <~> "B6 = "
+1.1: print <~> procedure(*value) { /* predefined procedure `print' */ }
+\end{verbatim}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (c)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+
+Este é o conjunto $A$ do \hyperref[exr-2-1]{Exercício 2.1 (a)}, que tem
+$4$ elementos. logo, $|A| = 4$.
 
 \end{tcolorbox}
 

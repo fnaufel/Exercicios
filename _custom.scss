@@ -8,3 +8,12 @@
 .hl code{
   background-color: yellow !important;
 }
+
+/*Fix note callout colors */
+div.callout-note.callout {
+  border-left-color: #2780e3 !important;
+}
+
+div.callout-note.callout-style-default>.callout-header {
+  background-color: #e9f2fc !important;
+}

@@ -9,9 +9,18 @@ source('_setup.R')
 
 ## 2.1 Conjuntos, elementos e pertinência
 
-![](images/ex-02.01.png)
+### Exercício 2.1 {#exr-2-1}
 
-::: {.callout-note title="Resposta (a)" collapse="true" icon="false"}
+Escreva os elementos dos conjuntos abaixo:
+
+a) $\{ x : x \text{ é raiz do polinômio } x^4 - 5x^2 + 6 \}$
+
+b) $\{ x^2 + 1 : x \text{ é raiz do polinômio } x^4 - 5x^2 + 6 \}$
+
+c) $\{ x \in \{1, 2, 3, 4\} : x \text{ é raiz do polinômio } x^4 - 5x^2 + 6 \}$
+
+
+::: {.callout-important title="Resposta (a)" collapse="true" icon="false"}
 
 Precisamos usar algum método para resolver a equação
 
@@ -39,7 +48,7 @@ $$
 
 :::
 
-::: {.callout-note title="Resposta (b)" collapse="true" icon="false"}
+::: {.callout-important title="Resposta (b)" collapse="true" icon="false"}
 
 Preste atenção: agora, não queremos as raízes, mas sim os valores de $x^2 + 1$, onde $x$ assume os valores das raízes.
 
@@ -93,3 +102,199 @@ print( "B = ", { round(x) : x in B } );
 
 
 :::
+
+::: {.callout-important title="Resposta (c)" collapse="true" icon="false"}
+
+Este item se parece com o item (a), mas há uma diferença importante: os valores de $x$ --- isto é, os elementos do conjunto --- precisam pertencer a $\{ 1, 2, 3, 4 \}$. Além disso, os valores de $x$ precisam ser raízes do polinômio dado.
+
+No item (a), vimos que as raízes são $-\sqrt3, -\sqrt2, \sqrt2, \text{ e } \sqrt3$. Nenhuma delas pertence ao conjunto $\{ 1, 2, 3, 4 \}$.
+
+Conclusão: o conjunto do item (c) é vazio.
+
+#### Em SETLX
+
+```{setlx}
+C := { x : x in {1, 2, 3, 4} | x**4 - 5*x**2 + 6 == 0 };
+print("C = ", C);
+```
+
+Observe que a [notação de SETLX]{.hl} divide a especificação do conjunto [em três partes]{.hl}:
+
+1. A forma geral do elemento: `x`;
+1. O domínio de onde vêm os valores da variável: `x in {1, 2, 3, 4}`;
+1. A condição que deve ser satisfeita pelos elementos do conjunto: `x**4 - 5*x**2 + 6 == 0`.
+
+A [notação do livro]{.hl} divide a especificação do conjunto [em duas partes]{.hl}:
+
+1. A forma geral do elemento e o universo: $x \in \{1, 2, 3, 4\}$;
+1. A condição que deve ser satisfeita pelos elementos do conjunto: $x$ *é raiz do polinômio* $x^4 - 5x^2 + 6$.
+
+Lembre-se disso para poder implementar corretamente em SETLX os exemplos do livro.
+
+:::
+
+
+### Exercício 2.2 {#exr-2-2}
+
+Escreva explicitamente os elementos dos seguintes conjuntos:
+
+a) $\{ x \in \inteiros : x^2 - 2x + 1 < 0 \}$
+
+b) $\{ x \in \inteiros : 2 \leq x \leq 20 \text{ e } x \text{ é primo} \}$
+
+c) $\{ x \in \reais : x^2 - 2x = 0 \}$
+
+
+::: {.callout-important title="Resposta (a)" collapse="true" icon="false"}
+
+Usando seus conhecimentos de Geometria Analítica, você pode traçar o gráfico da função $f : \reais \to \reais$ tal que
+
+$$
+f(x) = x^2 - 2x + 1
+$$
+
+![](images/ex-02.02-funcao.png)
+
+O único valor de $x$ para o qual $x^2 - 2x + 1 \leq 0$ é $1$ (que também é a única raiz desta função).
+
+O conjunto deste item tem os inteiros ($\inteiros$) como universo, e $1$ é inteiro. Então, o conjunto é $\{ 1 \}$.
+
+:::
+
+::: {.callout-important title="Resposta (b)" collapse="true" icon="false"}
+
+Este é o conjunto dos primos entre $2$ e $20$, inclusive:
+
+$$
+\{ 2, 3, 5, 7, 11, 13, 17, 19 \}
+$$
+
+#### Em SETLX
+
+```{setlx}
+// Função para testar se x é primo:
+primo := procedure(x) {
+  
+  // Para cada inteiro i entre 2 e teto (ceiling) de √x:
+  for (i in {2..ceil(sqrt(x))}) {
+    
+    // Se o resto de x dividido por i for zero, x não é primo:
+    if (x % i == 0) {
+      return false;
+    }
+    
+  }
+  
+  // Se testou todos os valores de i sem dar resto zero, x é primo:
+  return true;
+  
+};
+
+B := { x : x in {2..20} | primo(x) };
+print("B = ", B);
+```
+
+Você verá, em outros exercícios, maneiras mais curtas para calcular os primos em um dado intervalo em SETLX. A função acima é a mais parecida com o que você vai aprender na sua disciplina de programação.
+
+:::
+
+::: {.callout-important title="Resposta (c)" collapse="true" icon="false"}
+
+Basta achar as soluções da equação:
+
+$$
+x^2 - 2x = 0 \iff x(x - 2) = 0 \iff x = 0 \text{ ou } x = 2
+$$
+
+Então, o conjunto é $\{ 0, 2 \}$.
+
+:::
+
+
+### Exercício 2.3 {#exr-2-3}
+
+Determine a cardinalidade dos seguintes conjuntos:
+
+a) $\{ x \in \inteiros : -2 \leq x \leq 4 \}$
+
+b) $\{ x \in \inteiros : 10 \leq x^2 \leq 100 \}$
+
+c) $\{ x \in \reais : x^4 - 5x^2 + 6 = 0 \}$
+
+d) $\{ \sin(k\pi/7) : k \in \inteiros \}$
+
+
+::: {.callout-important title="Resposta (a)" collapse="true" icon="false"}
+
+Este é o conjunto $A = \{ -2, -1, 0, 1, 2, 3, 4 \}$, que tem $7$ elementos. Logo, $|A| = 7$.
+
+:::
+
+::: {.callout-important title="Resposta (b)" collapse="true" icon="false"}
+
+Este é o conjunto dos inteiros cujo quadrado está entre $10$ e $100$, inclusive.
+
+**Preste atenção:** números negativos, quando elevados ao quadrado, resultam em números positivos.
+
+Este conjunto é
+
+$$
+B = \{ -10, -9, -8, -7, -6, -5, -4, 4, 5, 6, 7, 8, 9, 10 \}
+$$
+
+e $|B| = 14$.
+
+#### Em SETLX
+
+E se os limites não fossem $10$ e $100$?
+
+Vamos fazer uma função mais geral, que recebe dois valores (`minimo` e `maximo`) e retorna o conjunto 
+
+$$
+\left\{ 
+x \in \inteiros : 
+x \in \{ -\sqrt{\texttt{maximo}}, \ldots, +\sqrt{\texttt{maximo}} \}
+\text{ e } \texttt{minimo} \leq x^2 \leq \texttt{maximo}
+\right\}
+$$
+
+Leia com atenção a definição acima. Por que o domínio é $\{ -\sqrt{\texttt{maximo}}, \ldots, +\sqrt{\texttt{maximo}} \}$?
+
+```{setlx}
+calcular := procedure(minimo, maximo) {
+  
+  extremo_esquerdo := -floor(sqrt(maximo));
+  extremo_direito  :=  floor(sqrt(maximo));
+  
+  return { 
+    x : 
+      x in { extremo_esquerdo..extremo_direito } |
+        minimo <= x**2 && x**2 <= maximo
+  };
+  
+};
+
+// Vários conjuntos, com valores diferentes:
+print("B  = ", calcular(10, 100));
+print("B2 = ", calcular(5, 50));
+print("B3 = ", calcular(0, 5));
+print("B4 = ", calcular(0, 0));
+
+// B5 está correto?
+print("B5 = ", calcular(10, 0));
+
+print("\n");
+
+// Nossa função não é muito robusta. 
+// Ela quebra se maximo for negativo. Por quê?
+print("B6 = ", calcular(-20, -10));
+```
+
+:::
+
+::: {.callout-important title="Resposta (c)" collapse="true" icon="false"}
+
+Este é o conjunto $A$ do [Exercício 2.1 (a)](#exr-2-1), que tem $4$ elementos. logo, $|A| = 4$.
+
+:::
+

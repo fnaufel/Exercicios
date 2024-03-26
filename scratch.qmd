@@ -29,6 +29,9 @@ format:
 source('_setup.R')
 ```
 
+
+# Tabela com math
+
 Original:
 
 ```{r echo=FALSE}
@@ -75,3 +78,36 @@ tibble(
   cols_align('right') %>% 
   fmt_passthrough(rows = everything(), escape = FALSE)
 ```
+
+# Callouts
+
+::: {.callout-note title="Note"}
+
+bla
+
+:::
+
+::: {.callout-warning title="Warning"}
+
+bla
+
+:::
+
+::: {.callout-important title="Important"}
+
+bla
+
+:::
+
+::: {.callout-tip title="Tip"}
+
+bla
+
+:::
+
+::: {.callout-caution title="Caution"}
+
+bla
+
+:::
+
