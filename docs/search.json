@@ -4,7 +4,17 @@
     "href": "index.html",
     "title": "Elementos de Matemática Discreta para Computação: Soluções",
     "section": "",
-    "text": "Apresentação\n???\nAnamaria Gomide (2023)\n\n\n\n\n\n\nAnamaria Gomide, Jorge Stolfi. 2023. Elementos de Matemática Discreta para Computação. https://www.ic.unicamp.br/~stolfi/fmc-book/2022-08-24-js/livro.pdf.",
+    "text": "Apresentação\nEste livro eletrônico — um trabalho em construção — reúne soluções dos exercícios do livro Elementos de Matemática Discreta para Computação, de autoria de Anamaria Gomide e Jorge Stolfi (Anamaria Gomide 2023), disponível em https://www.ic.unicamp.br/~stolfi/fmc-book/2022-08-24-js/livro.pdf.\nAlém das soluções teóricas, incluímos código em SETLX (Set Language Extended), uma linguagem de programação de alto nível projetada especificamente para resolver problemas envolvendo conjuntos, relações, funções e outros objetos estudados em um curso de Matemática Discreta.\nPara saber mais sobre SETLX — incluindo como instalar a liguagem nos principais sistemas operacionais — visite https://randoom.org/Software/SetlX/. Um tutorial completo de SETLX está disponível em https://download.randoom.org/setlX/tutorial.pdf.",
+    "crumbs": [
+      "Apresentação"
+    ]
+  },
+  {
+    "objectID": "index.html#agradecimentos",
+    "href": "index.html#agradecimentos",
+    "title": "Elementos de Matemática Discreta para Computação: Soluções",
+    "section": "Agradecimentos",
+    "text": "Agradecimentos\nMuitas das soluções foram desenvolvidas ao longo do ano de 2024 pelos alunos da disciplina de Matemática Discreta do curso de Ciência da Computação do Pólo de Rio das Ostras da Universidade Federal Fluminense.\n\n\n\n\n\n\nAnamaria Gomide, Jorge Stolfi. 2023. Elementos de Matemática Discreta para Computação. https://www.ic.unicamp.br/~stolfi/fmc-book/2022-08-24-js/livro.pdf.",
     "crumbs": [
       "Apresentação"
     ]

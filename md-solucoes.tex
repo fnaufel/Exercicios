@@ -246,7 +246,7 @@
 
 \title{Elementos de Matemática Discreta para Computação: Soluções}
 \author{Anamaria Gomide, Jorge Stolfi, Fernando Náufel}
-\date{26/03/2024 18:00}
+\date{10/04/2024 16:20}
 
 \begin{document}
 \maketitle
@@ -275,9 +275,32 @@
 
 \markboth{Apresentação}{Apresentação}
 
-???
+Este livro eletrônico --- um trabalho em construção --- reúne soluções
+dos exercícios do livro \emph{Elementos de Matemática Discreta para
+Computação}, de autoria de Anamaria Gomide e Jorge Stolfi (Anamaria
+Gomide 2023), disponível em
+\url{https://www.ic.unicamp.br/~stolfi/fmc-book/2022-08-24-js/livro.pdf}.
 
-Anamaria Gomide (2023)
+Além das soluções teóricas, incluímos código em SETLX (\emph{Set
+Language Extended}), uma linguagem de programação de alto nível
+projetada especificamente para resolver problemas envolvendo conjuntos,
+relações, funções e outros objetos estudados em um curso de Matemática
+Discreta.
+
+Para saber mais sobre SETLX --- incluindo como instalar a liguagem nos
+principais sistemas operacionais --- visite
+\url{https://randoom.org/Software/SetlX/}. Um tutorial completo de SETLX
+está disponível em
+\url{https://download.randoom.org/setlX/tutorial.pdf}.
+
+\section*{Agradecimentos}\label{agradecimentos}
+\addcontentsline{toc}{section}{Agradecimentos}
+
+\markright{Agradecimentos}
+
+Muitas das soluções foram desenvolvidas ao longo do ano de 2024 pelos
+alunos da disciplina de Matemática Discreta do curso de Ciência da
+Computação do Pólo de Rio das Ostras da Universidade Federal Fluminense.
 
 \bookmarksetup{startatroot}
 
@@ -307,7 +330,7 @@ Escreva os elementos dos conjuntos abaixo:
   $\{ x \in \{1, 2, 3, 4\} : x \text{ é raiz do polinômio } x^4 - 5x^2 + 6 \}$
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (a)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, breakable, toptitle=1mm, opacitybacktitle=0.6, colback=white, toprule=.15mm, left=2mm, rightrule=.15mm, leftrule=.75mm, title={Resposta (a)}, coltitle=black, arc=.35mm, bottomtitle=1mm, opacityback=0, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white]
 
 Precisamos usar algum método para resolver a equação
 
@@ -335,7 +358,7 @@ Escrevendo o conjunto como uma enumeração dos elementos:
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (b)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, breakable, toptitle=1mm, opacitybacktitle=0.6, colback=white, toprule=.15mm, left=2mm, rightrule=.15mm, leftrule=.75mm, title={Resposta (b)}, coltitle=black, arc=.35mm, bottomtitle=1mm, opacityback=0, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white]
 
 Preste atenção: agora, não queremos as raízes, mas sim os valores de
 $x^2 + 1$, onde $x$ assume os valores das raízes.
@@ -388,7 +411,7 @@ B = {3, 4}
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (c)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, breakable, toptitle=1mm, opacitybacktitle=0.6, colback=white, toprule=.15mm, left=2mm, rightrule=.15mm, leftrule=.75mm, title={Resposta (c)}, coltitle=black, arc=.35mm, bottomtitle=1mm, opacityback=0, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white]
 
 Este item se parece com o item (a), mas há uma diferença importante: os
 valores de $x$ --- isto é, os elementos do conjunto --- precisam
@@ -464,7 +487,7 @@ Escreva explicitamente os elementos dos seguintes conjuntos:
   $\{ x \in \mathbb{R}: x^2 - 2x = 0 \}$
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (a)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, breakable, toptitle=1mm, opacitybacktitle=0.6, colback=white, toprule=.15mm, left=2mm, rightrule=.15mm, leftrule=.75mm, title={Resposta (a)}, coltitle=black, arc=.35mm, bottomtitle=1mm, opacityback=0, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white]
 
 Usando seus conhecimentos de Geometria Analítica, você pode traçar o
 gráfico da função $f : \mathbb{R}\to \mathbb{R}$ tal que
@@ -483,7 +506,7 @@ $1$ é inteiro. Então, o conjunto é $\{ 1 \}$.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (b)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, breakable, toptitle=1mm, opacitybacktitle=0.6, colback=white, toprule=.15mm, left=2mm, rightrule=.15mm, leftrule=.75mm, title={Resposta (b)}, coltitle=black, arc=.35mm, bottomtitle=1mm, opacityback=0, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white]
 
 Este é o conjunto dos primos entre $2$ e $20$, inclusive:
 
@@ -529,7 +552,7 @@ com o que você vai aprender na sua disciplina de programação.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (c)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, breakable, toptitle=1mm, opacitybacktitle=0.6, colback=white, toprule=.15mm, left=2mm, rightrule=.15mm, leftrule=.75mm, title={Resposta (c)}, coltitle=black, arc=.35mm, bottomtitle=1mm, opacityback=0, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white]
 
 Basta achar as soluções da equação:
 
@@ -558,14 +581,14 @@ Determine a cardinalidade dos seguintes conjuntos:
   $\{ \sin(k\pi/7) : k \in \mathbb{Z}\}$
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (a)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, breakable, toptitle=1mm, opacitybacktitle=0.6, colback=white, toprule=.15mm, left=2mm, rightrule=.15mm, leftrule=.75mm, title={Resposta (a)}, coltitle=black, arc=.35mm, bottomtitle=1mm, opacityback=0, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white]
 
 Este é o conjunto $A = \{ -2, -1, 0, 1, 2, 3, 4 \}$, que tem $7$
 elementos. Logo, $|A| = 7$.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (b)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, breakable, toptitle=1mm, opacitybacktitle=0.6, colback=white, toprule=.15mm, left=2mm, rightrule=.15mm, leftrule=.75mm, title={Resposta (b)}, coltitle=black, arc=.35mm, bottomtitle=1mm, opacityback=0, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white]
 
 Este é o conjunto dos inteiros cujo quadrado está entre $10$ e $100$,
 inclusive.
@@ -665,7 +688,7 @@ Replay:
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, arc=.35mm, colback=white, opacityback=0, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, titlerule=0mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, breakable, colbacktitle=quarto-callout-important-color!10!white, title={Resposta (c)}, leftrule=.75mm, bottomtitle=1mm, rightrule=.15mm, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, breakable, toptitle=1mm, opacitybacktitle=0.6, colback=white, toprule=.15mm, left=2mm, rightrule=.15mm, leftrule=.75mm, title={Resposta (c)}, coltitle=black, arc=.35mm, bottomtitle=1mm, opacityback=0, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white]
 
 Este é o conjunto $A$ do \hyperref[exr-2-1]{Exercício 2.1 (a)}, que tem
 $4$ elementos. logo, $|A| = 4$.
