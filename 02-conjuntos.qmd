@@ -13,11 +13,11 @@ source('_setup.R')
 
 Escreva os elementos dos conjuntos abaixo:
 
-a) $\{ x : x \text{ é raiz do polinômio } x^4 - 5x^2 + 6 \}$
+a) $\{ x : x$ é raiz do polinômio $x^4 - 5x^2 + 6 \}$
 
-b) $\{ x^2 + 1 : x \text{ é raiz do polinômio } x^4 - 5x^2 + 6 \}$
+b) $\{ x^2 + 1 : x$ é raiz do polinômio $x^4 - 5x^2 + 6 \}$
 
-c) $\{ x \in \{1, 2, 3, 4\} : x \text{ é raiz do polinômio } x^4 - 5x^2 + 6 \}$
+c) $\{ x \in \{1, 2, 3, 4\} : x$ é raiz do polinômio $x^4 - 5x^2 + 6 \}$
 
 
 ::: {.callout-important title="Resposta (a)" collapse="true" icon="false"}
@@ -298,3 +298,311 @@ Este é o conjunto $A$ do [Exercício 2.1 (a)](#exr-2-1), que tem $4$ elementos.
 
 :::
 
+::: {.callout-important title="Resposta (d)" collapse="true" icon="false"}
+
+???
+
+:::
+
+
+## 2.4 Conjuntos de conjuntos
+
+### Exercício 2.13
+
+Considere $A = \{\{\ \}\}$, 
+$B =  \{\{\{\ \}\} , \{\ \}\}$ e 
+$C =  \{\{\{\{\ \}\}\} , \{\{\ \} , \{\{\ \}\}\} , \{\{\ \}\}\}.$
+
+(a) Determine as cardinalidades de $A$, $B$ e $C$.
+
+(b) Dentre esses três conjuntos, quais são elementos de quais?
+
+(c) Dentre esses três conjuntos, quais são subconjuntos de quais?
+
+(d) Quais são os elementos de $\{|x| : x \in C\}$?
+
+::: {.callout-important title="Resposta (a)" collapse="true" icon="false"}
+
+Talvez seja uma boa idéia escrever os conjuntos com indentação, para deixar claro quais e quantos são os elementos de cada:
+
+```{setlx eval=FALSE}
+A := {
+  { }
+};
+```
+
+A cardinalidade de $A$ é $1$.
+
+```{setlx eval=FALSE}
+B := {
+  {{ }}, 
+  { }
+};
+```
+
+$B$ tem $2$ elementos --- não importa que o primeiro elemento seja um conjunto não-vazio; o que importa é o "primeiro nível".
+
+```{setlx eval=FALSE}
+C := {
+  {{{ }}}, 
+  {{ }, {{ }}},
+  {{ }}
+};
+```
+
+A cardinalidade de $C$ é $3$.
+
+Vamos conferir com SETLX:
+
+```{setlx}
+A := {{ }};
+B := {{{ }}, { }};
+C := {{{{ }}}, {{ }, {{ }}}, {{ }}};
+
+print("|A| = ", #A);
+print("|B| = ", #B);
+print("|C| = ", #C);
+```
+
+:::
+
+::: {.callout-important title="Resposta (b)" collapse="true" icon="false"}
+
+[Precisamos verificar se $A \in B$, se $A \in C$, se $B \in C$ etc.]{.hl}
+
+* O conjunto $A$ é o primeiro elemento do conjunto $B$. Confira.
+* O conjunto $A$ é o último elemento do conjunto $C$. Confira.
+* O conjunto $B$ é o segundo elemento do conjunto $C$ --- observe que a ordem dos elementos de $B$ na definição é
+
+  $$
+  \{\{\{\ \}\}, \{\ \}\}
+  $$
+  
+  mas como elemento de $C$, a ordem é
+  
+  $$
+  \{\{\ \}, \{\{\ \}\}\}
+  $$
+
+  Sabemos que a ordem dos elementos não importa em um conjunto. Logo, trata-se do mesmo conjunto. Confira.
+* As outras possibilidades --- $B \in A$, $C \in A$ e $C \in B$ --- são todas falsas. Confira.
+
+Conferindo em SETLX:
+
+```{setlx}
+A := {{ }};
+B := {{{ }}, { }};
+C := {{{{ }}}, {{ }, {{ }}}, {{ }}};
+
+print("A elemento de B? ", A in B);
+print("A elemento de C? ", A in C);
+print("B elemento de C? ", B in C);
+print("B elemento de A? ", B in A);
+print("C elemento de A? ", C in A);
+print("C elemento de B? ", C in B);
+```
+
+:::
+
+::: {.callout-important title="Resposta (c)" collapse="true" icon="false"}
+
+[Precisamos verificar se $A \subseteq B$, se $A \subseteq  C$, se $B \subseteq  C$ etc.]{.hl}
+
+Pense bem: qualquer que seja $x$, toda vez que acontece que
+
+$$
+x \in B
+$$
+
+também acontece que 
+  
+$$
+\{x\} \subseteq B
+$$
+
+e vice-versa.
+
+Convença-se disso.
+
+Um dos elementos de $B$ é $\{\ \}$ (o segundo). Se você formar um conjunto unitário com este elemento (colocando chaves ao redor), você terá $\{\{\ \}\}$, que é o conjunto $A$.
+
+Então, como $\{\ \} \in B$, concluímos que $\{\{\ \}\} \subseteq B$, isto é, que $A \subseteq B$.
+
+Verifique que todas as outras possibilidades são falsas: $A \not\subseteq  C$, $B \not\subseteq  C$ etc.
+
+Conferindo em SETLX:
+
+```{setlx}
+A := {{ }};
+B := {{{ }}, { }};
+C := {{{{ }}}, {{ }, {{ }}}, {{ }}};
+
+print("A subconjunto de B? ", A <= B);
+print("A subconjunto de C? ", A <= C);
+print("B subconjunto de C? ", B <= C);
+print("B subconjunto de A? ", B <= A);
+print("C subconjunto de A? ", C <= A);
+print("C subconjunto de B? ", C <= B);
+```
+
+
+:::
+
+::: {.callout-important title="Resposta (d)" collapse="true" icon="false"}
+
+Queremos o conjunto das cardinalidades dos elementos de $C$.
+
+Estes elementos de $C$ são, eles mesmos, conjuntos.
+
+São eles
+
+$$
+\begin{aligned}
+&  \{\{\{\ \}\}\} \\
+&  \{\{\ \}, \{\{\ \}\}\} \\
+&  \{\{\ \}\}
+\end{aligned}
+$$
+
+* O primeiro tem um elemento: $\quad \{\{\ \}\}$.
+* O segundo tem dois elementos: $\quad \{\ \}\quad \text{e} \quad\{\{\ \}\}$.
+* O terceiro tem um elemento: $\quad \{\ \}$.
+
+O conjunto pedido é
+
+$$
+\{|x| : x \in C\} = \{1, 2\}
+$$
+
+Conferindo em SETLX:
+
+```{setlx}
+C := {{{{ }}}, {{ }, {{ }}}, {{ }}};
+pedido := { #x : x in C };
+print(pedido);
+```
+
+:::
+
+
+### Exercício 2.13
+
+Se $A$ é um conjunto qualquer, e $B$ é a união de todos os elementos de $\partes(A)$, o que podemos dizer sobre $A$ e $B$?
+
+::: {.callout-important title="Resposta" collapse="true" icon="false"}
+
+Será que, ao fazer a união de todos os elementos de $\partes(A)$, o resultado é o próprio $A$ de novo? Se sim, a conclusão seria $A = B$.
+
+Vamos experimentar alguns exemplos [(embora eles não provem nada no caso geral, que é o que o enunciado pede)]{.hl}.
+
+```{setlx}
+A := {1, 2, 3};
+B := 2**A;
+uniao := +/B;
+
+print("A = uniao? ", A == uniao);
+```
+
+```{setlx}
+A := {};
+B := 2**A;
+uniao := +/B;
+
+print("A = uniao? ", A == uniao);
+```
+
+```{setlx}
+A := {{}, {{}}, {{}, {{}}}};
+B := 2**A;
+uniao := +/B;
+
+print("A = uniao? ", A == uniao);
+```
+
+Hmmm. [Parece]{.hl} que é sempre verdade.
+
+[Mas, para confirmar, precisamos de uma prova.]{.hl}
+
+O que queremos provar? 
+
+Que, qualquer que seja o conjunto $A$, é verdade que
+
+$$
+\bigcup \partes(A) \;=\; A
+$$
+
+Os dois lados desta igualdade são conjuntos. 
+
+[Sempre que quisermos provar que dois conjuntos são iguais, o mais fácil é mostrar que (1) o primeiro é subconjunto do segundo e que (2) o segundo é subconjunto do primeiro.]{.hl}
+
+Isto divide o trabalho.
+
+Vamos provar a parte (2) primeiro (que é mais fácil):
+
+1. **Queremos mostrar** que $A \;\subseteq\; \bigcup \partes(A)$.
+
+1. Pela [definição]{.hl} de $\subseteq$, isto equivale a **mostrar que** qualquer elemento de $A$ também é elemento de $\bigcup \partes(A)$.
+
+1. Vamos tomar um elemento [arbitrário]{.hl} de $A$. Vamos chamar este elemento de $a$.
+
+1. **Queremos mostrar** que $a$ também é elemento de $\bigcup \partes(A)$.
+
+1. O conjunto $\partes(A)$ tem, como elementos, todos os subconjuntos de $A$. Afinal, esta é a [definição]{.hl} de $\partes(A)$.
+
+1. [Em especial]{.hl}, $\partes(A)$ vai ter, como elemento, o conjunto unitário $\{a\}$ (onde $a$ é o nosso elemento arbitrário de $A$.)
+
+1. Na hora de fazer a união $\bigcup \partes(A)$, o resultado vai ter o elemento $a$, pois 
+
+   $$
+   \bigcup\partes(A) = \{\ \} \cup \{a\} \cup \text{etc.} = \{ a, \text{etc.}\}
+   $$ 
+
+1. Como $a$ era um elemento arbitrário de $A$, **concluímos que** todos os elementos de $A$ vão ser elementos de $\bigcup\partes(A)$.
+
+1. Daí, **concluímos que** $A \;\subseteq\; \bigcup \partes(A)$, como queríamos.
+
+
+Agora, vamos provar a parte (1):
+
+???
+
+
+[Mas estas provas não cobrem um caso importante.]{.hl} E se $A = \vazio$? Aí não podemos tomar um elemento arbitrário de $A$. OK, vamos tratar este caso em separado: 
+
+1. Se $A = \vazio$, então $\partes(A) = \{ \vazio \}$. Confira.
+
+1. Daí, $\quad\bigcup \partes(A) \;=\; \vazio \;=\; A$, que é o que o enunciado pergunta.
+
+A resposta final é: podemos concluir que $A = B$.
+
+:::
+
+
+### Exercício 2.15
+
+Sejam $A$ e $B$ dois conjuntos arbitrários. Qual a relação entre $\partes(A \cup B)$, $\partes(A \cap B)$, $\partes(A)$ e $\partes(B)$?
+
+???
+
+
+### Exercício 2.16
+
+Seja $\mathcal{X}$ o conjunto de todos os conjuntos finitos de números naturais; de modo que, por exemplo, $\{2,3,5\} \in \mathcal{X}$, e $\{\{235\}\} \in \mathcal{X}$. Qual é a relação entre $\mathcal{X}$ e $\partes(\mathbb{N})$?
+
+::: {.callout-important title="Resposta" collapse="true" icon="false"}
+
+1. Todo elemento de $\mathcal{X}$ é um subconjunto finito de $\naturais$.
+
+2. Todo subconjunto finito de $\naturais$ é um subconjunto de $\naturais$.
+
+3. De (2.), todo subconjunto finito de $\naturais$ é elemento de $\partes(\naturais)$.
+
+4. De (1.) e (3.), todo elemento de $\mathcal{X}$ também é elemento de $\partes(\naturais)$.
+
+5. De (4.), $\mathcal{X}$ é subconjunto de $\partes(\naturais)$.
+
+Resposta: $\mathcal{X} \subseteq \partes(\naturais)$.
+
+Melhor ainda: como $\mathcal{X}$ não tem, como elementos, os subconjuntos [infinitos]{.hl} de $\naturais$, então $\mathcal{X} \subset \partes(\naturais)$.
+
+:::

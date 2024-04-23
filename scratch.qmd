@@ -111,3 +111,14 @@ bla
 
 :::
 
+
+
+
+1. Vamos dizer que o conjunto $A$ é
+
+   $$
+   A = \{ a_1, a_2, \ldots, a_n \}
+   $$
+   
+   Não sabemos o valor de $n$ (pode até ser zero, no caso do conjunto vazio), nem quem são os elementos (podem até ser outros conjuntos). Esta é a idéia de $A$ ser arbitrário.
+

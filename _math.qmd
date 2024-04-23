@@ -1,7 +1,11 @@
 
 ::: {.content-hidden}
 
+\providecommand{\naturais}{\mathbb{N}}        % naturais
 \providecommand{\reais}{\mathbb{R}}           % reais
 \providecommand{\inteiros}{\mathbb{Z}}        % inteiros
+\providecommand{\partes}{\mathcal{P}}         % conjunto das partes
+\providecommand{\vazio}{\{\ \}}               % conjunto vazio
+
 
 :::
